@@ -1,71 +1,91 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19755983&assignment_repo_type=AssignmentRepo)
-# React.js and Tailwind CSS Assignment
+# PLP Task Manager
 
-This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
+A modern task management application built with React, Vite, and Tailwind CSS. This application demonstrates component architecture, state management with hooks, and API integration.
 
-## Assignment Overview
+## Features
 
-You will:
-1. Set up a React project with Vite and Tailwind CSS
-2. Create reusable UI components
-3. Implement state management using React hooks
-4. Integrate with external APIs
-5. Style your application using Tailwind CSS
+- 🎨 **Responsive Design** - Works on mobile, tablet, and desktop
+- 🌓 **Dark/Light Mode** - Toggle between themes
+- 📝 **Task Management** - Add, edit, delete, and mark tasks as complete
+- 🔍 **Task Filtering** - Filter tasks by status (All, Active, Completed)
+- 📱 **API Integration** - Fetch and display posts from JSONPlaceholder API
+- 🛣️ **Client-side Routing** - Built with React Router
+- 💾 **Local Storage** - Persist tasks using custom hooks
+
+## Live Demo
+
+[View Live Demo](https://your-deployed-app-url.com) *(Update with your deployment URL)*
+
+## Screenshots
+
+*(Add screenshots of your application here)*
 
 ## Getting Started
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm run dev
-   ```
-
-## Files Included
-
-- `Week3-Assignment.md`: Detailed assignment instructions
-- Starter files for your React application:
-  - Basic project structure
-  - Pre-configured Tailwind CSS
-  - Sample component templates
-
-## Requirements
+### Prerequisites
 
 - Node.js (v18 or higher)
 - npm or yarn
-- Modern web browser
-- Code editor (VS Code recommended)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/plp-task-manager.git
+   cd plp-task-manager
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
 ## Project Structure
 
 ```
 src/
-├── components/       # Reusable UI components
-├── pages/           # Page components
-├── hooks/           # Custom React hooks
-├── context/         # React context providers
+├── components/       # Reusable UI components (Button, Card, Navbar, etc.)
+├── pages/           # Page components (Home, About, Contact, etc.)
+├── hooks/           # Custom React hooks (useLocalStorage, etc.)
+├── context/         # React context providers (ThemeContext)
 ├── api/             # API integration functions
 ├── utils/           # Utility functions
-└── App.jsx          # Main application component
+└── App.jsx          # Main application component with routing
 ```
 
-## Submission
+## Built With
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+- [React](https://react.dev/) - JavaScript library for building user interfaces
+- [Vite](https://vitejs.dev/) - Next generation frontend tooling
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [React Router](https://reactrouter.com/) - Declarative routing for React
+- [Hero Icons](https://heroicons.com/) - Beautiful hand-crafted SVG icons
+- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - Fake Online REST API for Testing
 
-1. Complete all required components and features
-2. Implement proper state management with hooks
-3. Integrate with at least one external API
-4. Style your application with Tailwind CSS
-5. Deploy your application and add the URL to your README.md
+## Available Scripts
 
-## Resources
+- `npm run dev` - Start the development server
+- `npm run build` - Build the app for production
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Vite + React + Tailwind CSS Template](https://vitejs.dev/guide/)
 - [React Documentation](https://react.dev/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Router Documentation](https://reactrouter.com/) 
