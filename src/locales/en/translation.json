@@ -1,0 +1,323 @@
+{
+  "app": {
+    "title": "My React App",
+    "welcome": "Welcome to React",
+    "description": "This is a simple internationalized React application"
+  },
+  "nav": {
+    "home": "Home",
+    "tasks": "Task Manager",
+    "posts": "Posts",
+    "about": "About",
+    "contact": "Contact",
+    "theme": {
+      "toggle": "Toggle theme",
+      "light": "Switch to light mode",
+      "dark": "Switch to dark mode"
+    },
+    "menu": {
+      "open": "Open main menu",
+      "close": "Close menu"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Our Mission",
+      "subtitle": "Empowering individuals and teams to achieve more with intuitive task management solutions.",
+      "cta": "Join Our Community"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "subtitle": "Transforming the way you organize and manage your tasks.",
+      "description": "We believe that effective task management should be simple, intuitive, and accessible to everyone. Our mission is to provide tools that help you focus on what matters most, while we take care of the rest.",
+      "values": [
+        {
+          "title": "Simplicity",
+          "description": "We build intuitive interfaces that anyone can use without a learning curve."
+        },
+        {
+          "title": "Efficiency",
+          "description": "Our tools are designed to save you time and help you accomplish more."
+        },
+        {
+          "title": "Innovation",
+          "description": "We're constantly improving and adding new features to enhance your experience."
+        },
+        {
+          "title": "Community",
+          "description": "We value our users' feedback and work together to build the best possible product."
+        }
+      ]
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "The passionate people behind our success.",
+      "members": [
+        {
+          "name": "Alex Johnson",
+          "role": "Frontend Architect",
+          "bio": "Passionate about creating beautiful and intuitive user experiences with React and modern web technologies."
+        },
+        {
+          "name": "Sarah Chen",
+          "role": "UX Designer",
+          "bio": "Dedicated to crafting seamless and delightful user experiences that solve real problems."
+        },
+        {
+          "name": "Michael Rodriguez",
+          "role": "Backend Engineer",
+          "bio": "Building robust and scalable systems to ensure our platform runs smoothly."
+        },
+        {
+          "name": "Emily Wilson",
+          "role": "Product Manager",
+          "bio": "Focused on delivering features that provide real value to our users."
+        }
+      ]
+    },
+    "stats": {
+      "title": "Our Impact",
+      "subtitle": "Helping thousands of users stay organized and productive.",
+      "items": [
+        {
+          "value": "50,000+",
+          "label": "Active Users"
+        },
+        {
+          "value": "1M+",
+          "label": "Tasks Completed"
+        },
+        {
+          "value": "99.9%",
+          "label": "Uptime"
+        },
+        {
+          "value": "24/7",
+          "label": "Support"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Join thousands of users who trust us with their task management needs.",
+      "button": "Get Started for Free"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions or feedback? We'd love to hear from you.",
+    "form": {
+      "title": "Send us a message",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "required": "*",
+        "submit": "Send Message"
+      },
+      "success": {
+        "title": "Message Sent!",
+        "message": "Thank you for contacting us. We'll get back to you soon.",
+        "another": "Send Another Message"
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "description": "Feel free to reach out to us through any of these channels.",
+      "email": "Email Us",
+      "call": "Call Us",
+      "visit": "Visit Us",
+      "hours": "Working Hours",
+      "location": "123 Task Street\nNairobi, 00100\nKenya",
+      "hoursText": "Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM\nSunday: Closed"
+    },
+    "social": {
+      "title": "Follow Us",
+      "description": "Stay connected with us on social media for updates and news."
+    }
+  },
+  "home": {
+    "newFeature": "Now with Dark Mode",
+    "title": "Organize Your Work & Life",
+    "titleHighlight": "Effortlessly",
+    "subtitle": "The all-in-one task management solution that helps you stay organized, focused, and in control of your work and personal life.",
+    "ctaPrimary": "Get Started",
+    "ctaSecondary": "Learn More",
+    "trustedBy": "Trusted by teams worldwide",
+    "features": {
+      "title": "Everything you need to be productive",
+      "subtitle": "Powerful features to help you manage your tasks and boost your productivity.",
+      "items": [
+        {
+          "title": "Task Management",
+          "description": "Easily create, update, and organize your tasks. Set priorities, due dates, and track progress all in one place."
+        },
+        {
+          "title": "Productivity Analytics",
+          "description": "Gain insights into your productivity with detailed analytics and visual reports on your task completion rates."
+        },
+        {
+          "title": "Smart Reminders",
+          "description": "Never miss a deadline with customizable reminders and notifications for your important tasks and events."
+        },
+        {
+          "title": "Team Collaboration",
+          "description": "Work seamlessly with your team by sharing tasks, assigning responsibilities, and tracking progress together."
+        },
+        {
+          "title": "Cross-Platform Sync",
+          "description": "Access your tasks from any device with our fully responsive design that works perfectly on desktop and mobile."
+        },
+        {
+          "title": "Secure & Private",
+          "description": "Your data is encrypted and secure. We prioritize your privacy and give you full control over your information."
+        }
+      ]
+    },
+    "testimonial": {
+      "title": "What our users say",
+      "subtitle": "Join thousands of satisfied users who have transformed their productivity with our task management solution.",
+      "content": "This application has completely changed how I organize my work and personal life. The interface is intuitive and the features are exactly what I needed to stay on top of my tasks.",
+      "author": "Chris Mbuthia",
+      "role": "Full Stack Developer"
+    },
+    "ctaSection": {
+      "title": "Ready to boost your productivity?",
+      "subtitle": "Start organizing your tasks today and experience the difference.",
+      "button": "Get Started for Free"
+    }
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "posts": {
+    "title": "Blog Posts",
+    "subtitle": "Discover the latest articles and updates",
+    "search": {
+      "placeholder": "Search posts by title or content...",
+      "clear": "Clear search",
+      "label": "Search posts"
+    },
+    "loading": "Loading posts...",
+    "error": "Failed to load posts. Please try again later.",
+    "noPosts": {
+      "title": "No posts found",
+      "noSearchResults": "No posts match your search for \"{{query}}\". Try a different term.",
+      "noPostsAvailable": "There are no posts available at the moment.",
+      "clearSearch": "Clear search"
+    },
+    "readMore": "Read more",
+    "minRead": "{{minutes}} min read",
+    "pagination": {
+      "page": "Page",
+      "of": "of",
+      "first": "First page",
+      "previous": "Previous page",
+      "next": "Next page",
+      "last": "Last page"
+    },
+    "detail": {
+      "back": "Back to Posts",
+      "loading": "Loading post...",
+      "error": {
+        "title": "Post Not Found",
+        "message": "The post you are looking for does not exist or may have been removed.",
+        "action": "Browse All Posts",
+        "tryAgain": "Try Again"
+      },
+      "notFound": {
+        "title": "Post Not Found",
+        "message": "The post you're looking for doesn't exist or has been removed.",
+        "browseAll": "Browse All Posts"
+      },
+      "meta": {
+        "author": "Author ID: {{id}}",
+        "postedAgo": "Posted {{date}}",
+        "authorName": "Author Name",
+        "authorRole": "Software Developer"
+      },
+      "content": {
+        "keyTakeaways": "Key Takeaways",
+        "takeaways": [
+          "Understanding the core concepts",
+          "Practical implementation examples",
+          "Best practices and common pitfalls",
+          "Advanced techniques and optimization"
+        ]
+      },
+      "comments": {
+        "show": "Show Comments",
+        "hide": "Hide Comments",
+        "title": "Comments",
+        "loading": "Loading comments...",
+        "noComments": "No comments yet. Be the first to comment!"
+      },
+      "tags": ["React", "JavaScript", "Web Dev", "Tutorial"]
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "heading": "Oops! Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved. Let's get you back on track.",
+    "actions": {
+      "home": "Go to Homepage",
+      "back": "Go Back"
+    }
+  },
+  "taskManager": {
+    "title": "Task Manager",
+    "input": {
+      "placeholder": "Add a new task...",
+      "label": "Task input",
+      "addButton": "Add Task"
+    },
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "completed": "Completed"
+    },
+    "emptyState": {
+      "all": "No tasks yet. Add one above!",
+      "active": "No active tasks.",
+      "completed": "No completed tasks yet."
+    },
+    "taskItem": {
+      "delete": "Delete",
+      "complete": "Mark as complete",
+      "incomplete": "Mark as incomplete"
+    },
+    "status": {
+      "tasksRemaining": "{{count}} tasks remaining",
+      "taskRemaining": "1 task remaining"
+    }
+  },
+  "common": {
+    "back": "Back",
+    "hide": "Hide",
+    "loading": "Loading...",
+    "error": "An unexpected error occurred.",
+    "tryAgain": "Try Again"
+  },
+  "footer": {
+    "title": "PLP Task Manager",
+    "description": "A simple task management application built with React and Tailwind CSS.",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "links": {
+      "about": "About",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact Us"
+    },
+    "social": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn"
+    },
+    "copyright": "© {{year}} PLP Task Manager. All rights reserved."
+  }
+}

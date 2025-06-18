@@ -1,51 +1,59 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { useTheme } from '@contexts/ThemeContext';
 
 const Footer = () => {
+  const { t } = useTranslation();
+  useTheme();
+
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
-    { to: '/about', label: 'About' },
-    { to: '/privacy', label: 'Privacy' },
-    { to: '/terms', label: 'Terms' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/about', label: t('footer.links.about') },
+    { to: '/contact', label: t('footer.links.contact') },
+    { to: '/posts', label: t('footer.links.posts') },
   ];
 
   const socialLinks = [
-    { name: 'GitHub', href: 'https://github.com/ciphermg101', icon: 'github' },
-    { name: 'X', href: 'https://x.com/chris_waigi', icon: 'x' },
-    { name: 'LinkedIn', href: 'https://linkedin.com/in/christopher-mbuthia-mboyi', icon: 'linkedin' },
+    { name: 'GitHub', href: 'https://github.com', icon: 'github' },
+    { name: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
+    { name: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
   ];
 
   return (
-    <footer className="bg-background border-t border-border">
-      <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="mt-auto w-full border-t border-border bg-background text-foreground">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8 xl:col-span-1">
-            <h3 className="text-lg font-semibold text-foreground">PLP Task Manager</h3>
-            <p className="text-muted-foreground text-base">
-              A simple task management application built with React and Tailwind CSS.
-            </p>
-            <div className="flex space-x-6">
-              {socialLinks.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+          {/* Left */}
+          <div className="space-y-6 xl:col-span-1">
+            <h2 className="text-2xl font-bold">{t('footer.title')}</h2>
+            <p className="text-base text-muted-foreground">{t('footer.description')}</p>
+            <div className="flex space-x-4">
+              {socialLinks.map((s) => (
+                <motion.a
+                  key={s.name}
+                  href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={item.name}
+                  aria-label={s.name}
+                  className="p-2 rounded-full bg-card text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <span className="sr-only">{item.name}</span>
-                  <i className={`fab fa-${item.icon} text-xl`}></i>
-                </a>
+                  <i className={`fa-brands fa-${s.icon} text-xl`} />
+                </motion.a>
               ))}
             </div>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+
+          {/* Right */}
+          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
+              {/* Navigation Links */}
               <div>
-                <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                  Navigation
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                  {t('footer.navigation')}
                 </h3>
                 <ul className="mt-4 space-y-4">
                   {footerLinks.map((link) => (
@@ -60,9 +68,11 @@ const Footer = () => {
                   ))}
                 </ul>
               </div>
+
+              {/* Support Links */}
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                  Support
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                  {t('footer.support')}
                 </h3>
                 <ul className="mt-4 space-y-4">
                   <li>
@@ -70,7 +80,7 @@ const Footer = () => {
                       href="#"
                       className="text-base text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      Help Center
+                      {t('footer.legal')}
                     </a>
                   </li>
                   <li>
@@ -78,7 +88,7 @@ const Footer = () => {
                       href="#"
                       className="text-base text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      Documentation
+                      {t('footer.documentation')}
                     </a>
                   </li>
                 </ul>
@@ -86,9 +96,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        {/* Bottom */}
         <div className="mt-12 border-t border-border pt-8">
-          <p className="text-base text-muted-foreground text-center">
-            &copy; {currentYear} PLP Task Manager. All rights reserved.
+          <p className="text-sm text-center text-muted-foreground">
+            {t('footer.copyright', {
+              year: currentYear,
+              defaultValue: `© ${currentYear} TaskFlow. All rights reserved.`,
+            })}
           </p>
         </div>
       </div>

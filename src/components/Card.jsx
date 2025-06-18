@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 
-const Card = ({ 
-  children, 
+const Card = ({
+  children,
   className = '',
   hoverable = false,
-  ...props 
+  ...props
 }) => {
   return (
-    <div 
-      className={`bg-card rounded-lg shadow-md overflow-hidden border border-border ${
-        hoverable ? 'transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:border-primary/20' : ''
+    <div
+      className={`rounded-2xl border border-border bg-card text-foreground shadow-sm transition-all duration-200 ${
+        hoverable
+          ? 'hover:shadow-md hover:-translate-y-1 hover:border-primary/40 transform'
+          : ''
       } ${className}`}
       {...props}
     >
@@ -18,49 +20,46 @@ const Card = ({
   );
 };
 
-/**
- * Card Header component
- */
 const CardHeader = ({ children, className = '', ...props }) => (
-  <div className={`px-6 py-4 border-b border-border ${className}`} {...props}>
+  <div
+    className={`px-6 py-4 border-b border-border bg-muted/50 ${className}`}
+    {...props}
+  >
     {children}
   </div>
 );
 
-/**
- * Card Title component
- */
 const CardTitle = ({ children, className = '', ...props }) => (
-  <h3 className={`text-lg font-semibold text-foreground ${className}`} {...props}>
+  <h3
+    className={`text-lg font-semibold leading-tight tracking-tight text-foreground ${className}`}
+    {...props}
+  >
     {children}
   </h3>
 );
 
-/**
- * Card Body component
- */
 const CardBody = ({ children, className = '', ...props }) => (
   <div className={`p-6 ${className}`} {...props}>
     {children}
   </div>
 );
 
-/**
- * Card Footer component
- */
 const CardFooter = ({ children, className = '', ...props }) => (
-  <div className={`px-6 py-4 bg-gray-50 dark:bg-gray-700/50 ${className}`} {...props}>
+  <div
+    className={`px-6 py-4 border-t border-border bg-muted text-muted-foreground ${className}`}
+    {...props}
+  >
     {children}
   </div>
 );
 
-// Assign subcomponents to Card
+// Attach subcomponents
 Card.Header = CardHeader;
 Card.Title = CardTitle;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
 
-// Prop types
+// PropTypes
 const commonPropTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

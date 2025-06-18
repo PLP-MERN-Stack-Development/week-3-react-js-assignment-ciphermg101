@@ -1,33 +1,50 @@
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '@components/Button';
 
 const NotFound = () => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
-      <div className="text-center">
-        <h1 className="text-6xl md:text-8xl font-bold text-gray-900 dark:text-white mb-4">404</h1>
+    <section
+      className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 px-4"
+      role="alert"
+      aria-labelledby="notFoundTitle"
+      aria-describedby="notFoundDescription"
+    >
+      <div className="text-center max-w-xl">
+        <h1
+          id="notFoundTitle"
+          className="text-6xl md:text-8xl font-bold text-gray-900 dark:text-white mb-4"
+        >
+          {t('notFound.title')}
+        </h1>
         <h2 className="text-2xl md:text-4xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
-          Oops! Page not found
+          {t('notFound.heading')}
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-md mx-auto">
-          The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+        <p
+          id="notFoundDescription"
+          className="text-gray-600 dark:text-gray-400 text-lg mb-8"
+        >
+          {t('notFound.description')}
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link to="/">
             <Button variant="primary" size="lg">
-              Go to Homepage
+              {t('notFound.actions.home')}
             </Button>
           </Link>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            onClick={() => window.history.back()}
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => navigate(-1)}
           >
-            Go Back
+            {t('notFound.actions.back')}
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

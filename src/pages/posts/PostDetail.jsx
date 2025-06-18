@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getPostById, getPostComments } from '@api/posts';
@@ -37,6 +38,7 @@ const PostDetail = () => {
   const [showComments, setShowComments] = useState(false);
   const [commentsLoading, setCommentsLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setMounted(true);
@@ -55,10 +57,10 @@ const PostDetail = () => {
       } catch (err) {
         console.error('Failed to fetch post:', err);
         setError({
-          title: 'Post Not Found',
-          message: 'The post you are looking for does not exist or may have been removed.',
+          title: t('posts.detail.error.title'),
+          message: t('posts.detail.error.message'),
           action: {
-            label: 'Browse All Posts',
+            label: t('posts.detail.error.action'),
             onClick: () => navigate('/posts')
           }
         });
@@ -83,8 +85,8 @@ const PostDetail = () => {
           console.error('Failed to fetch comments:', err);
           setError(prev => ({
             ...prev,
-            title: 'Failed to Load Comments',
-            message: 'There was an error loading the comments. Please try again later.'
+            title: t('common.error'),
+            message: t('posts.detail.comments.error')
           }));
         } finally {
           setCommentsLoading(false);
@@ -120,7 +122,7 @@ const PostDetail = () => {
           <div className="h-16 w-16 border-4 border-primary/20 rounded-full"></div>
           <div className="absolute top-0 left-0 h-16 w-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
         </div>
-        <p className="text-muted-foreground">Loading post...</p>
+        <p className="text-muted-foreground">{t('posts.detail.loading')}</p>
       </motion.div>
     );
   }
@@ -133,8 +135,8 @@ const PostDetail = () => {
         className="max-w-3xl mx-auto p-6"
       >
         <div className="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 text-red-700 dark:text-red-200 p-6 rounded-lg shadow-sm">
-          <h2 className="text-xl font-bold mb-2">{error.title || 'Error'}</h2>
-          <p className="mb-6">{error.message || 'An unexpected error occurred.'}</p>
+          <h2 className="text-xl font-bold mb-2">{error.title || t('common.error')}</h2>
+          <p className="mb-6">{error.message || t('common.error')}</p>
           <div className="flex flex-wrap gap-3">
             <Button 
               variant="secondary"
@@ -144,7 +146,7 @@ const PostDetail = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
-              Try Again
+              {t('common.tryAgain')}
             </Button>
             {error.action && (
               <Button 
@@ -178,14 +180,14 @@ const PostDetail = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <h2 className="mt-4 text-2xl font-bold text-foreground">Post Not Found</h2>
-          <p className="mt-2 text-muted-foreground">The post you're looking for doesn't exist or has been removed.</p>
+          <h2 className="mt-4 text-2xl font-bold text-foreground">{t('posts.detail.notFound.title')}</h2>
+          <p className="mt-2 text-muted-foreground">{t('posts.detail.notFound.message')}</p>
           <Button 
             variant="primary" 
             className="mt-6"
             onClick={() => navigate('/posts')}
           >
-            Browse All Posts
+            {t('posts.detail.notFound.browseAll')}
           </Button>
         </div>
       </motion.div>
@@ -208,9 +210,10 @@ const PostDetail = () => {
           size="sm"
           onClick={() => navigate(-1)}
           className="mb-8 group inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          aria-label={t('posts.detail.back')}
         >
           <ArrowLeftIcon className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          Back to Posts
+          {t('posts.detail.back')}
         </Button>
       </motion.div>
 
@@ -224,12 +227,12 @@ const PostDetail = () => {
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span className="flex items-center gap-1.5">
               <UserIcon className="h-4 w-4" />
-              <span>Author ID: {post.userId}</span>
+              <span>{t('posts.detail.meta.author', { id: post.userId })}</span>
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
               <ClockIcon className="h-4 w-4" />
-              <span>Posted {formatDate(Date.now() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000)}</span>
+              <span>{t('posts.detail.meta.postedAgo', { date: formatDate(Date.now() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000) })}</span>
             </span>
           </div>
           
@@ -238,7 +241,7 @@ const PostDetail = () => {
           </h1>
           
           <div className="flex flex-wrap gap-2">
-            {['React', 'JavaScript', 'Web Dev', 'Tutorial'].map((tag, i) => (
+            {t('posts.detail.tags', { returnObjects: true }).map((tag, i) => (
               <span 
                 key={i} 
                 className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary"
@@ -259,14 +262,9 @@ const PostDetail = () => {
           </p>
           
           <div className="my-8 p-6 bg-muted/30 rounded-xl border border-border">
-            <h3 className="text-lg font-semibold mb-3">Key Takeaways</h3>
+            <h3 className="text-lg font-semibold mb-3">{t('posts.detail.content.keyTakeaways')}</h3>
             <ul className="space-y-2">
-              {[
-                'Understanding the core concepts',
-                'Practical implementation examples',
-                'Best practices and common pitfalls',
-                'Advanced techniques and optimization'
-              ].map((item, i) => (
+              {t('posts.detail.content.takeaways', { returnObjects: true }).map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <svg className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -293,8 +291,8 @@ const PostDetail = () => {
                 {post.userId}
               </div>
               <div>
-                <p className="font-medium text-foreground">Author Name</p>
-                <p className="text-sm text-muted-foreground">Software Developer</p>
+                <p className="font-medium text-foreground">{t('posts.detail.meta.authorName')}</p>
+                <p className="text-sm text-muted-foreground">{t('posts.detail.meta.authorRole')}</p>
               </div>
             </div>
             
@@ -307,14 +305,14 @@ const PostDetail = () => {
               <ChatBubbleLeftRightIcon className="h-4 w-4 mr-2" />
               {showComments ? (
                 <>
-                  Hide Comments
+                  {t('posts.detail.comments.hide')}
                   {comments.length > 0 && (
                     <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary">
                       {comments.length}
                     </span>
                   )}
                 </>
-              ) : 'Show Comments'}
+              ) : t('posts.detail.comments.show')}
               {commentsLoading && (
                 <span className="ml-2 h-4 w-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
               )}
@@ -348,7 +346,7 @@ const PostDetail = () => {
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
                 <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary" />
-                Comments
+                {t('posts.detail.comments.title')}
                 {comments.length > 0 && (
                   <span className="text-sm font-normal text-muted-foreground">
                     ({comments.length})
@@ -361,6 +359,7 @@ const PostDetail = () => {
                 onClick={toggleComments}
                 className="text-muted-foreground hover:text-foreground"
               >
+                {t('posts.detail.comments.hide')}
                 Hide
               </Button>
             </div>
@@ -368,7 +367,7 @@ const PostDetail = () => {
             {commentsLoading ? (
               <div className="flex flex-col items-center justify-center py-12 space-y-4">
                 <div className="h-10 w-10 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
-                <p className="text-muted-foreground">Loading comments...</p>
+                <p className="text-muted-foreground">{t('posts.detail.comments.loading')}</p>
               </div>
             ) : comments.length > 0 ? (
               <motion.ul 

@@ -8,9 +8,10 @@
       "@pages/*": ["./src/pages/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@utils/*": ["./src/utils/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@locales/*": ["./src/locales/*"],
       "@services/*": ["./src/services/*"],
       "@contexts/*": ["./src/contexts/*"],
+      "@api/*": ["./src/api/*"],
       "@lib/*": ["./src/lib/*"]
     },
     "jsx": "react-jsx"
